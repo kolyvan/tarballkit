@@ -19,15 +19,13 @@ for entry in reader {
   doSomething(entry.content)
 }
 
-let data = reader.read(path: "entry.txt")
+let data = try reader.read(path: "entry.txt")
 ```
 
 ### Writer
 ```swift
 let writer = try TarballWriter(filePath: "/path/to/archive.tar")
-writer.write(data: data, path: path)
-
-let data = reader.read(path: "entry.txt")
+try writer.write(data: data, path: path)
 ```
 
 ### License
