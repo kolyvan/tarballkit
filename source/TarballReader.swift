@@ -49,6 +49,12 @@ public struct TarballReader {
         }
     }
 
+    public func item(path: String) throws -> TarballItem? {
+        let raw = try RawArchive.openRead(filePath)
+        guard let item = raw.item(withPath: path) else { return nil}
+        return TarballItem(item, filter: raw.filter)
+    }
+
     public func read(path: String) throws -> Data {
         let raw = try RawArchive.openRead(filePath)
         return try raw.readData(path)

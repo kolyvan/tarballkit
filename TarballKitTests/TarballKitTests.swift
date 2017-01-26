@@ -25,6 +25,16 @@ class TarballKitTests: XCTestCase {
         XCTAssertTrue(items.count > 0)
     }
 
+    func testReaderItem() {
+        let reader = resourceReader()
+        for item in try! reader.items() {
+            let kitem = try! reader.item(path: item.path)
+            XCTAssertNotNil(kitem)
+            XCTAssertEqual(item.path, kitem!.path)
+            XCTAssertEqual(item.range, kitem!.range)
+        }
+    }
+
     func testReaderReadNotFound() {
 
         XCTAssertThrowsError(try resourceReader().read(path: "bad"))

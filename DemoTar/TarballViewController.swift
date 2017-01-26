@@ -88,7 +88,17 @@ final class TarballViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
+
     private func writeEntry(name: String, content: String?) {
+
+        let reader = TarballReader(filePath: filePath)
+        let probe = try! reader.item(path: name + ".txt")
+        if nil != probe {
+            let alert = UIAlertController(title: "Already exists", message: name, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            present(alert, animated: true, completion: nil)
+            return
+        }
 
         let data = content?.data(using: .utf8) ?? Data()
 

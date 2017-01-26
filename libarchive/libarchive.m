@@ -195,6 +195,49 @@ typedef enum {
     return [items copy];
 }
 
+- (RawArchiveItem *) itemWithPath:(NSString *)path
+{
+    NSParameterAssert(path.length > 0);
+
+    struct archive_entry *entry;
+
+    while (1) {
+
+        const int r = archive_read_next_header(_archive, &entry);
+        if (r == ARCHIVE_EOF) {
+            break; // ok, eof
+        }
+
+        if (r == ARCHIVE_WARN) { // skip
+#if DEBUG
+            const char *cstring = archive_error_string(_archive);
+            if (cstring != NULL) {
+                NSLog(@"skip tar item due to error: %s", cstring);
+            }
+#endif
+            continue;
+        }
+
+        if (r != ARCHIVE_OK) {
+            return nil;
+        }
+
+        if (!S_ISREG(archive_entry_mode(entry))) {
+            continue;
+        }
+
+        const char *cstring = archive_entry_pathname(entry);
+        if (cstring != NULL) {
+            NSString *current = [NSString stringWithUTF8String:cstring];
+            if (current && [current localizedStandardCompare:path] == NSOrderedSame) {
+                return [self makeItem:path entry:entry];
+            }
+        }
+    }
+
+    return nil;
+}
+
 - (RawArchiveItem *) makeItem:(NSString *)path entry:(struct archive_entry *)entry
 {
     RawArchiveItem *result = [RawArchiveItem new];
