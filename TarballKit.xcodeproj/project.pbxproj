@@ -45,6 +45,8 @@
 		F974B6E41E399FD90073E84F /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F974B6E31E399FD90073E84F /* libbz2.tbd */; };
 		F974B6E91E39B7C30073E84F /* sample.tbz in Resources */ = {isa = PBXBuildFile; fileRef = F974B6E51E39B7BD0073E84F /* sample.tbz */; };
 		F974B6EA1E39B7C60073E84F /* sample.tgz in Resources */ = {isa = PBXBuildFile; fileRef = F974B6E61E39B7BD0073E84F /* sample.tgz */; };
+		F974B6EF1E39B9A10073E84F /* archive_write_add_filter_gzip.c in Sources */ = {isa = PBXBuildFile; fileRef = F974B6EC1E39B9950073E84F /* archive_write_add_filter_gzip.c */; };
+		F974B6F01E39B9A40073E84F /* archive_write_add_filter_bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = F974B6EB1E39B9950073E84F /* archive_write_add_filter_bzip2.c */; };
 		F9823A361E3861630060DFE6 /* archive_read_support_filter_gzip.c in Sources */ = {isa = PBXBuildFile; fileRef = F9823A341E3861540060DFE6 /* archive_read_support_filter_gzip.c */; };
 		F9823A381E387B9C0060DFE6 /* TarballEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9823A371E387B9C0060DFE6 /* TarballEntry.swift */; };
 		F9823A3E1E3882CF0060DFE6 /* sample.tar in Resources */ = {isa = PBXBuildFile; fileRef = F9823A3D1E3882CF0060DFE6 /* sample.tar */; };
@@ -162,6 +164,8 @@
 		F974B6E31E399FD90073E84F /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		F974B6E51E39B7BD0073E84F /* sample.tbz */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.tbz; path = sample/sample.tbz; sourceTree = "<group>"; };
 		F974B6E61E39B7BD0073E84F /* sample.tgz */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.tgz; path = sample/sample.tgz; sourceTree = "<group>"; };
+		F974B6EB1E39B9950073E84F /* archive_write_add_filter_bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = archive_write_add_filter_bzip2.c; path = vendors/libarchive/libarchive/archive_write_add_filter_bzip2.c; sourceTree = "<group>"; };
+		F974B6EC1E39B9950073E84F /* archive_write_add_filter_gzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = archive_write_add_filter_gzip.c; path = vendors/libarchive/libarchive/archive_write_add_filter_gzip.c; sourceTree = "<group>"; };
 		F9823A341E3861540060DFE6 /* archive_read_support_filter_gzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = archive_read_support_filter_gzip.c; path = vendors/libarchive/libarchive/archive_read_support_filter_gzip.c; sourceTree = "<group>"; };
 		F9823A371E387B9C0060DFE6 /* TarballEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TarballEntry.swift; path = source/TarballEntry.swift; sourceTree = "<group>"; };
 		F9823A3D1E3882CF0060DFE6 /* sample.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; name = sample.tar; path = sample/sample.tar; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 				F962B16C1E3751C600C14355 /* archive_write_open_filename.c */,
 				F962B16F1E3751E800C14355 /* archive_write_set_format_pax.c */,
 				F962B1701E3751E800C14355 /* archive_write_set_format_ustar.c */,
+				F974B6EC1E39B9950073E84F /* archive_write_add_filter_gzip.c */,
+				F974B6EB1E39B9950073E84F /* archive_write_add_filter_bzip2.c */,
 				F962B1761E37521200C14355 /* archive_string.c */,
 				F962B1751E37521200C14355 /* archive_string_sprintf.c */,
 				F962B1771E37521200C14355 /* archive_util.c */,
@@ -581,11 +587,13 @@
 				F962B1621E37516B00C14355 /* archive_read_support_format_raw.c in Sources */,
 				F962B17B1E37521D00C14355 /* archive_string.c in Sources */,
 				F962B16E1E3751CC00C14355 /* archive_write_open_filename.c in Sources */,
+				F974B6F01E39B9A40073E84F /* archive_write_add_filter_bzip2.c in Sources */,
 				F962B1551E37510200C14355 /* archive_acl.c in Sources */,
 				F962B1741E3751F200C14355 /* archive_write_set_format_ustar.c in Sources */,
 				F962B14A1E37508B00C14355 /* archive_entry.c in Sources */,
 				F962B1501E3750D500C14355 /* archive_entry_xattr.c in Sources */,
 				F974B6E21E399F9C0073E84F /* archive_read_support_filter_bzip2.c in Sources */,
+				F974B6EF1E39B9A10073E84F /* archive_write_add_filter_gzip.c in Sources */,
 				F962B16B1E3751AC00C14355 /* archive_write.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

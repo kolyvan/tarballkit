@@ -346,7 +346,7 @@ typedef enum {
 
 #pragma mark - write
 
-+ (instancetype) openWrite:(NSString *)filePath error:(NSError **)error
++ (instancetype) openWrite:(NSString *)filePath filter:(RawArchiveFilter)filter error:(NSError **)error
 {
     NSParameterAssert(filePath.length > 0);
 
@@ -367,6 +367,11 @@ typedef enum {
         return nil;
     }
 
+    switch (filter) {
+        case RawArchiveFilterGzip:  archive_write_add_filter_gzip(archive); break;
+        case RawArchiveFilterBzip2: archive_write_add_filter_bzip2(archive); break;
+        default: break;
+    }
     archive_write_set_format_pax_restricted(archive);
     const int r = archive_write_open_fd(archive, fileHandle.fileDescriptor);
 
@@ -434,7 +439,7 @@ typedef enum {
     NSParameterAssert(filePath.length > 0);
 
     if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        return [self openWrite:filePath error:error];
+        return [self openWrite:filePath filter:RawArchiveFilterNone error:error];
     }
 
     NSFileHandle *fileHandle = [self openFileAtEndOfArchive:filePath error:error];

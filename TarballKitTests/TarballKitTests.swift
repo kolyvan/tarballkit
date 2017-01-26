@@ -109,7 +109,7 @@ class TarballKitTests: XCTestCase {
         }
 
         do {
-            let writer = try! TarballWriter(filePath: path, append: true)
+            let writer = try! TarballWriter(filePath: path, mode: .append)
             try! writer.write(data: sample2!, path: "sample2.txt")
         }
 
@@ -119,6 +119,40 @@ class TarballKitTests: XCTestCase {
             let data2 = try! reader.read(path: "sample2.txt")
             XCTAssertEqual(data1, sample1)
             XCTAssertEqual(data2, sample2)
+        }
+    }
+
+    func testWriterGzipped() {
+
+        let path = tmpFolder() + "/test-\(Date.timeIntervalSinceReferenceDate).tgz"
+        let sample = "red fox jumps over lazy dog".data(using: .utf8)
+
+        do {
+            let writer = try! TarballWriter(filePath: path, mode: .gzipped)
+            try! writer.write(data: sample!, path: "sample.txt")
+        }
+
+        do {
+            let reader = TarballReader(filePath: path)
+            let data = try! reader.read(path: "sample.txt")
+            XCTAssertEqual(data, sample)
+        }
+    }
+
+    func testWriterBzipped() {
+
+        let path = tmpFolder() + "/test-\(Date.timeIntervalSinceReferenceDate).tbz"
+        let sample = "red fox jumps over lazy dog".data(using: .utf8)
+
+        do {
+            let writer = try! TarballWriter(filePath: path, mode: .bzipped)
+            try! writer.write(data: sample!, path: "sample.txt")
+        }
+
+        do {
+            let reader = TarballReader(filePath: path)
+            let data = try! reader.read(path: "sample.txt")
+            XCTAssertEqual(data, sample)
         }
     }
 

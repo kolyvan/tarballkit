@@ -35,15 +35,19 @@ import Foundation
 
 public final class TarballWriter {
 
+    public enum Mode {
+        case `default`, append, gzipped, bzipped
+    }
+
     public let filePath: String
     private let raw: RawArchive
 
-    public init(filePath: String, append: Bool = false) throws {
+    public init(filePath: String, mode: Mode = .default) throws {
         precondition(!filePath.isEmpty)
-        if append {
+        if mode == .append {
             self.raw = try RawArchive.openAppend(filePath)
         } else {
-            self.raw = try RawArchive.openWrite(filePath)
+            self.raw = try RawArchive.openWrite(filePath, filter: RawArchiveFilter(mode))
         }
         self.filePath = filePath
     }
@@ -75,5 +79,17 @@ private extension RawArchiveEntry {
         self.content = entry.content
         self.created = entry.created
         self.modified = entry.modified
+    }
+}
+
+private extension RawArchiveFilter {
+
+    init(_ mode: TarballWriter.Mode) {
+        switch mode {
+        case .default: self = .none
+        case .append:  self = .none
+        case .gzipped: self = .gzip
+        case .bzipped: self = .bzip2
+        }
     }
 }

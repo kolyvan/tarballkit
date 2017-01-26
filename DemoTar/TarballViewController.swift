@@ -93,7 +93,7 @@ final class TarballViewController: UIViewController {
         let data = content?.data(using: .utf8) ?? Data()
 
         do {
-            let writer = try TarballWriter(filePath: filePath, append: true)
+            let writer = try TarballWriter(filePath: filePath, mode: .append)
             try writer.write(data: data, path: name + ".txt")
         } catch {
             print("\(error)")
