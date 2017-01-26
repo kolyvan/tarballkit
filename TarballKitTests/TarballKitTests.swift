@@ -51,6 +51,14 @@ class TarballKitTests: XCTestCase {
         }
     }
 
+    func testReaderSequence() {
+
+        let entries = resourceReader().map{ $0 }
+        for entry in entries {
+            let original = resourceData(filename: entry.path)
+            XCTAssertEqual(entry.content, original)
+        }
+    }
 
     func testWriter() {
 
