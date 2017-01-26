@@ -78,5 +78,6 @@ typedef NS_ENUM(NSInteger, RawArchiveFilter) {
 + (nullable instancetype) openWrite:(nonnull NSString *)filePath filter:(RawArchiveFilter)filter error:(NSError * _Nullable * _Nullable)error;
 + (nullable instancetype) openAppend:(nonnull NSString *)filePath error:(NSError * _Nullable * _Nullable)error;
 - (BOOL) writeEntry:(nonnull RawArchiveEntry *)rawEntry error:(NSError * _Nullable * _Nullable)error;
+- (void) close;
 
 @end

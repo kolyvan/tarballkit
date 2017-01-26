@@ -96,6 +96,14 @@ typedef enum {
 
     archive_free(_archive);
     _archive = NULL;
+
+    if (_fileHandle != nil) {
+        if (_mode == RawArchiveModeWrite) {
+            [_fileHandle synchronizeFile];
+        }
+        [_fileHandle closeFile];
+        _fileHandle = nil;
+    }
 }
 
 #pragma mark - read

@@ -52,6 +52,10 @@ public final class TarballWriter {
         self.filePath = filePath
     }
 
+    deinit {
+        raw.close()
+    }
+
     public func write(data: Data, path: String) throws {
         let entry = RawArchiveEntry()
         entry.path = path
