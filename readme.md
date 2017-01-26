@@ -25,7 +25,7 @@ let data = try reader.read(path: "entry.txt")
 ### Writer
 ```swift
 let writer = try TarballWriter(filePath: "/path/to/archive.tar")
-try writer.write(data: data, path: path)
+try writer.write(data: data, path: "entry.txt")
 ```
 
 ### License
