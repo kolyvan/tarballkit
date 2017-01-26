@@ -41,6 +41,8 @@
 		F962B1911E375D8E00C14355 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F962B1901E375D8E00C14355 /* libiconv.tbd */; };
 		F962B1931E375D9600C14355 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F962B1921E375D9600C14355 /* libz.tbd */; };
 		F962B1961E37704400C14355 /* TarballViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F962B1951E37704400C14355 /* TarballViewController.swift */; };
+		F974B6E21E399F9C0073E84F /* archive_read_support_filter_bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = F974B6E01E399F940073E84F /* archive_read_support_filter_bzip2.c */; };
+		F974B6E41E399FD90073E84F /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F974B6E31E399FD90073E84F /* libbz2.tbd */; };
 		F9823A361E3861630060DFE6 /* archive_read_support_filter_gzip.c in Sources */ = {isa = PBXBuildFile; fileRef = F9823A341E3861540060DFE6 /* archive_read_support_filter_gzip.c */; };
 		F9823A381E387B9C0060DFE6 /* TarballEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9823A371E387B9C0060DFE6 /* TarballEntry.swift */; };
 		F9823A3E1E3882CF0060DFE6 /* sample.tar in Resources */ = {isa = PBXBuildFile; fileRef = F9823A3D1E3882CF0060DFE6 /* sample.tar */; };
@@ -154,6 +156,8 @@
 		F962B1901E375D8E00C14355 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		F962B1921E375D9600C14355 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		F962B1951E37704400C14355 /* TarballViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarballViewController.swift; sourceTree = "<group>"; };
+		F974B6E01E399F940073E84F /* archive_read_support_filter_bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = archive_read_support_filter_bzip2.c; path = vendors/libarchive/libarchive/archive_read_support_filter_bzip2.c; sourceTree = "<group>"; };
+		F974B6E31E399FD90073E84F /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
 		F9823A341E3861540060DFE6 /* archive_read_support_filter_gzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = archive_read_support_filter_gzip.c; path = vendors/libarchive/libarchive/archive_read_support_filter_gzip.c; sourceTree = "<group>"; };
 		F9823A371E387B9C0060DFE6 /* TarballEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TarballEntry.swift; path = source/TarballEntry.swift; sourceTree = "<group>"; };
 		F9823A3D1E3882CF0060DFE6 /* sample.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; name = sample.tar; path = sample/sample.tar; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F974B6E41E399FD90073E84F /* libbz2.tbd in Frameworks */,
 				F962B1931E375D9600C14355 /* libz.tbd in Frameworks */,
 				F962B1911E375D8E00C14355 /* libiconv.tbd in Frameworks */,
 				F962B1471E37506800C14355 /* liblibarchive.a in Frameworks */,
@@ -298,6 +303,7 @@
 				F962B15E1E37516300C14355 /* archive_read_support_format_raw.c */,
 				F962B1631E37518100C14355 /* archive_read_support_format_tar.c */,
 				F9823A341E3861540060DFE6 /* archive_read_support_filter_gzip.c */,
+				F974B6E01E399F940073E84F /* archive_read_support_filter_bzip2.c */,
 				F962B1671E3751A300C14355 /* archive_write.c */,
 				F962B1661E3751A300C14355 /* archive_write_open_fd.c */,
 				F962B16C1E3751C600C14355 /* archive_write_open_filename.c */,
@@ -323,6 +329,7 @@
 		F962B18F1E375D8E00C14355 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F974B6E31E399FD90073E84F /* libbz2.tbd */,
 				F962B1921E375D9600C14355 /* libz.tbd */,
 				F962B1901E375D8E00C14355 /* libiconv.tbd */,
 			);
@@ -570,6 +577,7 @@
 				F962B1741E3751F200C14355 /* archive_write_set_format_ustar.c in Sources */,
 				F962B14A1E37508B00C14355 /* archive_entry.c in Sources */,
 				F962B1501E3750D500C14355 /* archive_entry_xattr.c in Sources */,
+				F974B6E21E399F9C0073E84F /* archive_read_support_filter_bzip2.c in Sources */,
 				F962B16B1E3751AC00C14355 /* archive_write.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

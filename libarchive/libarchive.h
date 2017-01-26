@@ -44,8 +44,9 @@ typedef NS_ENUM(NSInteger, RawArchiveError) {
 };
 
 typedef NS_ENUM(NSInteger, RawArchiveFilter) {
-    RawArchiveFilterNone = 0,
-    RawArchiveFilterGzip = 1,
+    RawArchiveFilterNone        = 0,
+    RawArchiveFilterGzip        = 1,
+    RawArchiveFilterBzip2       = 2,
     RawArchiveFilterUnsupported = 255,
 };
 

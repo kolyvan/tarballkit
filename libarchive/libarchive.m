@@ -121,6 +121,7 @@ typedef enum {
     }
 
     archive_read_support_filter_gzip(archive);
+    archive_read_support_filter_bzip2(archive);
     archive_read_support_format_tar(archive);
     const int r = archive_read_open_fd(archive, fileHandle.fileDescriptor, 10240);
 
@@ -136,6 +137,7 @@ typedef enum {
     switch (archive_filter_code(archive, 0)) {
         case ARCHIVE_FILTER_NONE: filter = RawArchiveFilterNone; break;
         case ARCHIVE_FILTER_GZIP: filter = RawArchiveFilterGzip; break;
+        case ARCHIVE_FILTER_BZIP2:filter = RawArchiveFilterBzip2; break;
         default:                  filter = RawArchiveFilterUnsupported; break;
     }
 

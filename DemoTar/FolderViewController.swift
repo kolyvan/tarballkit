@@ -79,7 +79,7 @@ final class FolderViewController: UIViewController {
 
         if let contens = try? FileManager.default.contentsOfDirectory(atPath: folderPath) {
             return contens.flatMap{ fileName in
-                if fileName.hasSuffix(".tar") || fileName.hasSuffix(".tgz") {
+                if fileName.hasSuffix(".tar") || fileName.hasSuffix(".tgz") || fileName.hasSuffix(".tar.gz") || fileName.hasSuffix(".tar.bz2") || fileName.hasSuffix(".tbz") {
                     return folderPath + "/" + fileName
                 }
                 return nil
