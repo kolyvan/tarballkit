@@ -60,6 +60,26 @@ class TarballKitTests: XCTestCase {
         }
     }
 
+    func testReaderReadGzip() {
+
+        let reader = resourceReader(ext: "tgz")
+        for item in try! reader.items() {
+            let data = try! reader.read(item: item)
+            let original = resourceData(filename: item.path)
+            XCTAssertEqual(data, original)
+        }
+    }
+
+    func testReaderReadBzip2() {
+
+        let reader = resourceReader(ext: "tbz")
+        for item in try! reader.items() {
+            let data = try! reader.read(item: item)
+            let original = resourceData(filename: item.path)
+            XCTAssertEqual(data, original)
+        }
+    }
+
     func testWriter() {
 
         let path = tmpFolder() + "/test-\(Date.timeIntervalSinceReferenceDate).tar"
@@ -102,8 +122,8 @@ class TarballKitTests: XCTestCase {
         }
     }
 
-    private func resourceReader() -> TarballReader {
-        let path = Bundle(for: type(of: self)).path(forResource: "sample", ofType: "tar")
+    private func resourceReader(ext: String = "tar") -> TarballReader {
+        let path = Bundle(for: type(of: self)).path(forResource: "sample", ofType: ext)
         return TarballReader(filePath: path!)
     }
 

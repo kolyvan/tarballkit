@@ -43,6 +43,8 @@
 		F962B1961E37704400C14355 /* TarballViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F962B1951E37704400C14355 /* TarballViewController.swift */; };
 		F974B6E21E399F9C0073E84F /* archive_read_support_filter_bzip2.c in Sources */ = {isa = PBXBuildFile; fileRef = F974B6E01E399F940073E84F /* archive_read_support_filter_bzip2.c */; };
 		F974B6E41E399FD90073E84F /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F974B6E31E399FD90073E84F /* libbz2.tbd */; };
+		F974B6E91E39B7C30073E84F /* sample.tbz in Resources */ = {isa = PBXBuildFile; fileRef = F974B6E51E39B7BD0073E84F /* sample.tbz */; };
+		F974B6EA1E39B7C60073E84F /* sample.tgz in Resources */ = {isa = PBXBuildFile; fileRef = F974B6E61E39B7BD0073E84F /* sample.tgz */; };
 		F9823A361E3861630060DFE6 /* archive_read_support_filter_gzip.c in Sources */ = {isa = PBXBuildFile; fileRef = F9823A341E3861540060DFE6 /* archive_read_support_filter_gzip.c */; };
 		F9823A381E387B9C0060DFE6 /* TarballEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9823A371E387B9C0060DFE6 /* TarballEntry.swift */; };
 		F9823A3E1E3882CF0060DFE6 /* sample.tar in Resources */ = {isa = PBXBuildFile; fileRef = F9823A3D1E3882CF0060DFE6 /* sample.tar */; };
@@ -158,6 +160,8 @@
 		F962B1951E37704400C14355 /* TarballViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TarballViewController.swift; sourceTree = "<group>"; };
 		F974B6E01E399F940073E84F /* archive_read_support_filter_bzip2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = archive_read_support_filter_bzip2.c; path = vendors/libarchive/libarchive/archive_read_support_filter_bzip2.c; sourceTree = "<group>"; };
 		F974B6E31E399FD90073E84F /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		F974B6E51E39B7BD0073E84F /* sample.tbz */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.tbz; path = sample/sample.tbz; sourceTree = "<group>"; };
+		F974B6E61E39B7BD0073E84F /* sample.tgz */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.tgz; path = sample/sample.tgz; sourceTree = "<group>"; };
 		F9823A341E3861540060DFE6 /* archive_read_support_filter_gzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = archive_read_support_filter_gzip.c; path = vendors/libarchive/libarchive/archive_read_support_filter_gzip.c; sourceTree = "<group>"; };
 		F9823A371E387B9C0060DFE6 /* TarballEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TarballEntry.swift; path = source/TarballEntry.swift; sourceTree = "<group>"; };
 		F9823A3D1E3882CF0060DFE6 /* sample.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; name = sample.tar; path = sample/sample.tar; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 		F9823A3C1E3882C40060DFE6 /* sample */ = {
 			isa = PBXGroup;
 			children = (
+				F974B6E51E39B7BD0073E84F /* sample.tbz */,
+				F974B6E61E39B7BD0073E84F /* sample.tgz */,
 				F9823A641E38A9D30060DFE6 /* глава2.txt */,
 				F9823A651E38A9D30060DFE6 /* fragment1.txt */,
 				F9823A661E38A9D30060DFE6 /* sturm.jpg */,
@@ -526,6 +532,8 @@
 				F9823A6A1E38A9DA0060DFE6 /* глава2.txt in Resources */,
 				F9823A631E38A9CA0060DFE6 /* sample.tar in Resources */,
 				F9823A6C1E38A9E00060DFE6 /* sturm.jpg in Resources */,
+				F974B6E91E39B7C30073E84F /* sample.tbz in Resources */,
+				F974B6EA1E39B7C60073E84F /* sample.tgz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
