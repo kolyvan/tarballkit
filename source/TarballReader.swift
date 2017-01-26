@@ -33,7 +33,7 @@
 import Foundation
 
 
-public final class TarballReader {
+public struct TarballReader {
 
     public let filePath: String
 
