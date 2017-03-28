@@ -165,6 +165,6 @@ extension TarballViewController: QLPreviewControllerDataSource {
     }
 
     func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-        return quickLookItem as! QLPreviewItem
+        return quickLookItem! as QLPreviewItem
     }
 }

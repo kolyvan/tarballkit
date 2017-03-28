@@ -73,7 +73,7 @@ public struct TarballReader {
         let handle = try FileHandle(forReadingFrom: URL(fileURLWithPath: filePath))
         defer { handle.closeFile() }
         handle.seek(toFileOffset: UInt64(range.lowerBound))
-        return handle.readData(ofLength: range.upperBound - range.lowerBound)
+        return handle.readData(ofLength: Int(range.upperBound - range.lowerBound))
     }
 }
 
